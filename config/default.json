@@ -1,0 +1,4 @@
+{
+    "mongoURI": "mongodb+srv://alu_admin:app_alumnos666@cluster0.c2oryyd.mongodb.net/?retryWrites=true&w=majority",
+    "urlRoot":"http://localhost:8080"
+}

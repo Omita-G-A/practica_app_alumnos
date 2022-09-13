@@ -1,0 +1,62 @@
+<%- include('./partials/header.ejs') %>
+<%- include('./partials/navbar.ejs') %>
+
+<div class="container">
+<%= alumno.fechaNac %>
+
+    <div class="jumbotron" style="text-align:center">
+        <h1>Editar alumno</h1>
+    </div>
+    
+    <div class="errors-container hidden">
+        <ul class="errors"></ul>
+    </div>
+    
+    <div class="success-container hidden">
+        <h1 class="success"></h1>
+    </div>
+    <form id="aluform" class="admin-form" method="post" action="">
+    
+        <div class="form-group">
+            <label for="nombre">Nombre</label>
+            <input type="text" class="form-control" id="nombre" name="nombre" value="<%= alumno.nombre %>">
+            <p id="name-error" class="input-error"></p>
+        </div>
+    
+        <div class="form-group">
+            <label for="apellios">Apellidos</label>
+            <input type="text" class="form-control" id="apellidos" name="apellidos" value="<%= alumno.apellidos %>">
+            <p id="lastname-error" class="input-error"></p>
+        </div>
+
+        <div class="form-group">
+            <label for="fechaNac">Fecha de nacimiento</label>
+            <input type="date" class="form-control" id="fecha-nacimiento" name="fechaNac" value="<%= alumno.fechaNac%>">
+            <p id="password-error" class="input-error"></p>
+        </div>
+                
+        <div class="form-group">
+            <label for="dni">DNI</label>
+            <input type="text" class="form-control" id="dni" name="dni" value="<%= alumno.dni %>">
+            <p id="password-error" class="input-error"></p>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" id="email" name="email" value="<%= alumno.email %>">
+            <p id="email-error" class="input-error"></p>
+        </div>
+
+        <div class="form-group">
+            <label for="tel">Teléfono</label>
+            <input type="tel" class="form-control" id="tel" name="tel" value="<%= alumno.tel %>">
+            <p id="password-error" class="input-error"></p>
+        </div>
+
+        <button  class="submit btn btn-primary">Guardar cambios</button>
+    
+    </form>
+
+</div>
+
+<%- include('./partials/footer.ejs') %>

@@ -1,0 +1,41 @@
+.errors-container{
+    background-color: hsl(0, 55%, 66%);
+    border: 0.1em solid hsl(0, 55%, 58%);
+    color: hsl(0, 0%, 100%);
+    margin-bottom: 1em;
+    width: 100%;
+}
+
+.errors-container ul{
+    margin: 1em;
+}
+
+.errors-container.hidden{
+    display: none;
+}
+
+.success-container{
+    background-color: hsl(138, 59%, 45%);
+    border: 0.1em solid hsl(96, 75%, 33%);
+    color: hsl(0, 0%, 100%);
+    position: absolute;
+    top: 50vh;
+    left: 35%;
+}
+
+.success-container h1{
+    font-size: 2em;
+    padding: 1em;
+    position: relative;
+    z-index: 100;
+}
+
+.success-container.hidden{
+    display: none;
+}
+
+.input-error {
+    color: hsl(0, 100%, 50%);
+}
+/* data table */
+

@@ -1,0 +1,79 @@
+<%- include('./partials/header.ejs') %>
+<%- include('./partials/navbar.ejs') %>
+
+
+<div class="container">
+
+    <div class="jumbotron" style="text-align:center">
+        <h1>Alumnos <%= clase %></h1>
+    </div>
+    
+    <div>
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <button type="button" class="btn btn-secondary"><a class="nav-link active" aria-current="page" href="/registrar">Añadir alumno</a></button>
+          </li>
+        </ul>
+    </div>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Nombre</th>
+          <th scope="col">Apellido</th>
+          <th scope="col">Fecha nacimiento</th>
+          <th scope="col">DNI</th>
+          <th scope="col">E-mail</th>
+          <th scope="col">Teléfono</th>
+          <th scope="col">editar</th>
+          <th scope="col">eliminar</th>
+        </tr>
+      </thead>
+      <tbody class="table-group-divider">
+        <% if(alumnos.length > 0) { %>
+          <% alumnos.forEach(alumno => { %>
+              <tr>
+              <td> <%= alumno.nombre %> </td>
+              <td> <%= alumno.apellidos %> </td>
+              <td> <%= alumno.fechaNac.toLocaleDateString()%> </td>
+              <td> <%= alumno.dni %> </td>
+              <td> <%= alumno.email %> </td>
+              <td> <%= alumno.tel %> </td>
+              <td><a href="/editar/<%= alumno.id %>">&#128394;</a></td>
+              <td><a class="delete" href="/" data-id=<%= alumno.id %>>&#128465;</a></td>
+          </tr> <% }); %>
+      <% } else { %>
+          <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+          </tr>
+      <% }; %>
+  
+      </tbody>
+    </table>
+</div>
+
+<script>
+
+
+  const del = document.querySelectorAll('.delete'); 
+  del.forEach(item => {
+    item.addEventListener('click', () =>  {
+      const ruta = `/${item.dataset.id}`;
+      fetch(ruta, {
+          method: 'DELETE'
+      })
+      .then((res) => res.json())
+      .then(data => window.location.href = data.redirect)
+      .catch(err => console.log(err));    
+    });
+  });
+
+</script>
+
+<%- include('./partials/footer.ejs') %>
